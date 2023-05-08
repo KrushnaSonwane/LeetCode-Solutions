@@ -1,5 +1,16 @@
 class Solution(object):
     def maxProfit(self, prices):
+        """
+        Greedy Approach
+        """
+        res = 0
+        for i in range(1, len(prices)):
+            if prices[i - 1] < prices[i]:
+                res += prices[i] - prices[i - 1]
+        return res
+        """
+        Recursive + DP + Memoization
+        """
         dp = [[-1, -1] for _ in prices]
         def dfs(i, buy):
             if i == len(prices): return 0
