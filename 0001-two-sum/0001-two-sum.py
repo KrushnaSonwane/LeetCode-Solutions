@@ -8,6 +8,7 @@ class Solution(object):
             if target - num in hashT:
                 return [index, hashT[target - num]]
             hashT[num] = index
+        return [-1, -1]
         """
         Sorting + Two Pointers
         """
