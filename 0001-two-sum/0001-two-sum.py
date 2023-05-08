@@ -1,13 +1,16 @@
 class Solution(object):
     def twoSum(self, nums, target):
         """
-        Sorting + Two Pointers
+        Using HashMap or Dictionary
         """
         hashT = {}
         for index, num in enumerate(nums):
             if target - num in hashT:
                 return [index, hashT[target - num]]
             hashT[num] = index
+        """
+        Sorting + Two Pointers
+        """
         nums = [[val, i] for i, val in enumerate(nums)]
         nums.sort()
         l, r = 0, len(nums) - 1
