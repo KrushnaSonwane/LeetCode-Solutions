@@ -2,11 +2,11 @@ class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
         def dfs(i, j, k, board):
             if k == len(word): 
-                return True
+                return 1
             if i == m or j == n or j == -1 or i == -1:
-                return False 
+                return 0 
             if board[i][j] != word[k] or board[i][j] == '*': 
-                return False
+                return 0
             temp = board[i][j]
             board[i][j] = '*'
             first = dfs(i + 1, j, k + 1, board)
@@ -19,6 +19,6 @@ class Solution:
         for r in range(m):
             for c in range(n):
                 if board[r][c] == word[0]:
-                    res = dfs(r, c, 0, board.copy())
-                    if res: return 1
+                    if dfs(r, c, 0, board.copy()): 
+                        return 1
         return 0
