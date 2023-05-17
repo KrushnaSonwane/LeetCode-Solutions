@@ -6,10 +6,6 @@
 #         self.right = right
 class Solution(object):
     def isValidBST(self, root):
-        """
-        :type root: TreeNode
-        :rtype: bool
-        """
         def dfs(root, min_, max_):
             if not root: return 1
             if root.val >= max_ or root.val <= min_:
