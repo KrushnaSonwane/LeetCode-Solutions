@@ -1,10 +1,6 @@
+import bisect
 class Solution(object):
     def fullBloomFlowers(self, F, P):
-        """
-        :type flowers: List[List[int]]
-        :type people: List[int]
-        :rtype: List[int]
-        """
         start = sorted(a for a, _ in F)
         end = sorted(b for _, b in F)
         n, res = len(F), []
