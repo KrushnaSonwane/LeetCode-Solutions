@@ -15,8 +15,7 @@ class Solution(object):
         dfs(0, -1)
         res, max_ = 0, 0
         for node in hashT:
-            prod = 1
-            nodes = 0
+            prod, nodes = 1, 0
             for child in children[node]:
                 prod = prod * (hashT[child] + 1)
                 nodes += hashT[child] + 1
