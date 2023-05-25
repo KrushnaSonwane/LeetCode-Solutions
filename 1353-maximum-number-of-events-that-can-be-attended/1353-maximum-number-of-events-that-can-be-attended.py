@@ -10,11 +10,11 @@ class Solution(object):
         ptr, n = 0, len(events)
         for d in range(1, days + 1):
             while n > ptr and events[ptr][0] == d:
-                heapq.heappush(queue, events[ptr][1])
+                heappush(queue, events[ptr][1])
                 ptr += 1
             while queue and queue[0] < d:
-                heapq.heappop(queue)
+                heappop(queue)
             if queue:
                 res += 1
-                heapq.heappop(queue)
+                heappop(queue)
         return res
