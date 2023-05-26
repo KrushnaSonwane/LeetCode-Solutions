@@ -8,6 +8,6 @@ class Solution(object):
         res = []
         for i in range(len(arr)):
             for j in range(i + 1, len(arr)):
-                res.append([float(arr[i] / float(arr[j])), arr[i], arr[j]])
+                res.append([arr[i] / float(arr[j]), arr[i], arr[j]])
         res.sort()
         return [res[k - 1][1], res[k - 1][2]]
