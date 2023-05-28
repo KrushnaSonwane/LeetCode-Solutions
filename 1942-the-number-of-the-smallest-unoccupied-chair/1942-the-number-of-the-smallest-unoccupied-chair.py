@@ -3,11 +3,8 @@ class Solution:
         times = [[s, e, i] for i, (s, e) in enumerate(times)]
         times.sort()
         t = max(max(s, e) for s, e, _ in times)
-        n = len(times)
+        n, rem, ptr = len(times), [], 0
         queue = [i for i in range(n)]
-        heapq.heapify(queue)
-        rem = []
-        ptr = 0
         for currTime in range(1, t + 1):
             while rem and rem[0][0] == currTime:
                 _, chair = heappop(rem)
