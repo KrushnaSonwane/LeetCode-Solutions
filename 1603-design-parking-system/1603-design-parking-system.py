@@ -1,22 +1,11 @@
 class ParkingSystem:
 
     def __init__(self, big: int, medium: int, small: int):
-        self.a = big
-        self.b = medium
-        self.c = small
+        self.hashT = {1: big, 2: medium, 3: small}
 
     def addCar(self, carType: int) -> bool:
-        if carType == 1 and self.a:
-            self.a -= 1
-            return 1
-        elif carType == 2 and self.b:
-            self.b -= 1
-            return 1
-        elif carType == 3 and self.c:
-            self.c -= 1
-            return 1
-        else:
-            return 0
+        self.hashT[carType] -= 1
+        return self.hashT[carType] >= 0
 
 
 # Your ParkingSystem object will be instantiated and called as such:
