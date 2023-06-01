@@ -6,7 +6,7 @@ class Solution:
         while queue:
             cost, r, c= heapq.heappop(queue)
             if r == n - 1 and c == n - 1: return cost
-            for x, y in [(r + 1, c), (r - 1, c), (r, c + 1), (r, c - 1), (r + 1, c + 1), (r - 1, c - 1), (r - 1, c + 1), (r + 1, c - 1)]:
+            for x, y in [(r+1, c),(r-1, c), (r, c+1), (r, c-1), (r+1, c+1), (r-1, c-1), (r-1, c+1), (r+1, c-1)]:
                 if x in [-1, n] or y in [-1, n] or grid[x][y]: continue
                 heapq.heappush(queue, [cost + 1, x, y])
                 grid[x][y] = 1
