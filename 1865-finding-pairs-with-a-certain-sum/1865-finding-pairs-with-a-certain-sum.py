@@ -11,11 +11,7 @@ class FindSumPairs:
         self.hashT[self.nums2[index]] += 1
 
     def count(self, tot: int) -> int:
-        res = 0
-        for num in self.nums1:
-            if tot - num in self.hashT:
-                res += self.hashT[tot - num]
-        return res
+        return sum(self.hashT[tot - num] for num in self.nums1)
 
 
 # Your FindSumPairs object will be instantiated and called as such:
