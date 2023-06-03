@@ -4,10 +4,11 @@ class Solution:
         for i, val in enumerate(manager):
             adj[val].append(i)
         res = [0]
-        def dfs(node, time):
+        def dfs(node):
             if not adj[node]:
-                res[0] = max(res[0], time)
+                return 0
+            res = 0
             for child in adj[node]:
-                dfs(child, time + informTime[node])
-        dfs(headID, 0)
-        return res[0]
+                res = max(res, dfs(child) + informTime[node])
+            return res
+        return dfs(headID)
