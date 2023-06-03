@@ -11,10 +11,4 @@ class Solution:
                     box[i][ptr2] = '#'
                     ptr2 -= 1
                 ptr1 -= 1
-        res = []
-        for i in range(n):
-            temp = []
-            for j in range(m):
-                temp.append(box[j][i])
-            res.append(temp[::-1])
-        return res
+        return [[box[j][i] for j in range(m)][::-1] for i in range(n)]
