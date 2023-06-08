@@ -6,10 +6,8 @@ class Solution:
         
         if hh > hh2:
             hh2 += 24
-        else:
-            if hh == hh2:
-                if mm > mm2:
-                    hh2 += 24
+        elif hh == hh2 and mm > mm2:
+                hh2 += 24
         if mm % 15:
             mm += 15 - (mm % 15)
         if mm == 60:
