@@ -19,12 +19,10 @@ class Solution:
             sum_ -= mid
             return sum_ <= maxSum
         l, r = 1, maxSum
-        res = 0
-        while r >= l:
-            mid = (r + l) // 2
+        while r > l:
+            mid = (r + l + 1) // 2
             if check(mid):
-                res = max(res, mid)
-                l = mid + 1
+                l = mid
             else:
                 r = mid - 1
-        return res
+        return l
