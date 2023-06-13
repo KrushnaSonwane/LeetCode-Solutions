@@ -3,13 +3,7 @@ class Solution:
         res, n = 0, len(grid)
         hashT = defaultdict(int)
         for i in range(n):
-            s = ''
-            for j in range(n):
-                s += str(grid[i][j]) + '.'
-            hashT[s] += 1
+            hashT['.'.join(str(grid[i][j]) for j in range(n))] += 1
         for i in range(n):
-            s = ''
-            for j in range(n):
-                s += str(grid[j][i]) + '.'
-            res += hashT[s]
+            res += hashT['.'.join(str(grid[j][i]) for j in range(n))]
         return res
