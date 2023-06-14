@@ -9,8 +9,7 @@ class Solution:
                         if a[l] != a[r]: break
                         l += 1
                         r -= 1
-                    else:
-                        return True
+                    else: return True
                     l, r = t1, t2
                     while r > l:
                         if b[l] != b[r]: break
@@ -20,7 +19,6 @@ class Solution:
                     break
                 l += 1
                 r -= 1
-            else:
-                return 1
+            else: return 1
             return 0
         return solve(a, b) or solve(b, a)
