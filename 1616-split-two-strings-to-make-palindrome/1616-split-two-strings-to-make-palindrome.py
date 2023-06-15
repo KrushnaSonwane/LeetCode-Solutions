@@ -19,6 +19,6 @@ class Solution:
                     break
                 l += 1
                 r -= 1
-            else: return 1
-            return 0
-        return solve(a, b) or solve(b, a)
+            else: return True
+            return False
+        return solve(a, b) or solve(b, a) or False
