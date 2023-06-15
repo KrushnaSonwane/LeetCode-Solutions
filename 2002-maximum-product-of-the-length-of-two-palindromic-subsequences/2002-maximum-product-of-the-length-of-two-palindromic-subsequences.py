@@ -1,5 +1,6 @@
 class Solution:
     def maxProduct(self, s: str) -> int:
+        @cache
         def dfs(i, a, b):
             if i == len(s):
                 if a == a[::-1] and b == b[::-1]:
