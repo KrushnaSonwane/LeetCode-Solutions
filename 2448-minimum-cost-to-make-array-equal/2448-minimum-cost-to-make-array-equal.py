@@ -9,6 +9,4 @@ class Solution:
             if sum_ >= mid:
                 mid = _
                 break
-        for num, c in arr:
-            res += abs(mid - num) * c
-        return res
+        return sum(abs(num - mid) * c for num, c in arr)
