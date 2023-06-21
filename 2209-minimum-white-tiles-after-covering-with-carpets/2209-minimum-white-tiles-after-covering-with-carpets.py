@@ -2,8 +2,7 @@ class Solution:
     def minimumWhiteTiles(self, floor: str, numCarpets: int, carpetLen: int) -> int:
         pre, sum_ = [0], 0
         for dig in floor:
-            sum_ += dig == '1'
-            pre.append(sum_)
+            pre.append(pre[-1] + (dig == '1'))
         dp = {}
         def dfs(i, k):
             if (i, k) not in dp:
