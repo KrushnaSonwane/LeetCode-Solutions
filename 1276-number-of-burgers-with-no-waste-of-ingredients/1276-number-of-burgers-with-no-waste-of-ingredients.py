@@ -1,6 +1,6 @@
 class Solution:
     def numOfBurgers(self, a: int, b: int) -> List[int]:
-        if not a and not b: return [0, 0]
+        if a == b == 0: return [0, 0]
         l, r = 0, b
         while r > l:
             mid = (r + l) // 2
