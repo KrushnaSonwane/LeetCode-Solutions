@@ -7,11 +7,17 @@ class Solution:
                 if i == n: return True
                 res = False
                 if i + 1 < n and nums[i] == nums[i + 1]:
-                    res = dfs(i + 2)
+                    if dfs(i + 2): 
+                        dp[i] = 1
+                        return 1
                 if i + 2 < n and nums[i] == nums[i + 1] == nums[i + 2]:
-                    res = res or dfs(i + 3)
+                    if dfs(i + 3): 
+                        dp[i] = 1
+                        return 1
                 if i + 2 < n and nums[i] == nums[i + 1] - 1 == nums[i + 2] - 2:
-                    res = res or dfs(i + 3)
-                dp[i] = res
+                    if dfs(i + 3): 
+                        dp[i] = 1
+                        return 1
+                dp[i] = False
             return dp[i]
         return dfs(0)
