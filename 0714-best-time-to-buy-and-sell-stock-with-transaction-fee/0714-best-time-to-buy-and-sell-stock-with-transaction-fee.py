@@ -1,21 +1,12 @@
-class Solution(object):
-    def maxProfit(self, prices, fee):
-        """
-        :type prices: List[int]
-        :type fee: int
-        :rtype: int
-        """
-        dp = [[-1, -1] for _ in prices]
-        def dfs(i, buy):
+class Solution:
+    def maxProfit(self, prices: List[int], fee: int) -> int:
+        @cache
+        def dfs(i, f):
             if i == len(prices): return 0
-            if dp[i][buy] != -1:
-                return dp[i][buy]
-            if buy:
-                sell = prices[i] - fee + dfs(i + 1, 0)
-                dontSell = dfs(i + 1, buy)
+            res = dfs(i + 1, f)
+            if f:
+                res = max(res, dfs(i + 1, False) - prices[i])
             else:
-                sell = -prices[i] + dfs(i + 1, 1)
-                dontSell = dfs(i + 1, buy)
-            dp[i][buy] = max(dontSell, sell)
-            return dp[i][buy]
-        return dfs(0, 0)
+                res = max(res, (prices[i] - fee) + dfs(i + 1, True))
+            return res
+        return dfs(0, 1)
