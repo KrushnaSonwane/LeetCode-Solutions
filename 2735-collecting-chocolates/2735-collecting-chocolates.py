@@ -1,10 +1,6 @@
-class Solution(object):
-    def minCost(self, nums, x):
-        """
-        :type nums: List[int]
-        :type x: int
-        :rtype: int
-        """
+from sortedcontainers import SortedList
+class Solution:
+    def minCost(self, nums: List[int], x: int) -> int:
         n = len(nums)
         res = [float("inf")] * n
         nums = nums + nums
