@@ -18,12 +18,8 @@ class Solution(object):
             if (i, x, y) not in dp:
                 if i == len(strs): return 0
                 res = dfs(i + 1, x, y)
-                t1, t2 = x, y
-                x -= hashT[i][0]
-                y -= hashT[i][1]
-                if x >= 0 and y >= 0:
-                    res = max(res, dfs(i + 1, x, y) + 1)
-                x, y = t1, t2
+                if x >= hashT[i][0] and y >= hashT[i][1]:
+                    res = max(res, dfs(i + 1, x - hashT[i][0], y - hashT[i][1]) + 1)
                 dp[(i, x, y)] = res
             return dp[(i, x, y)]
         return dfs(0, m, n)
