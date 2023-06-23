@@ -16,8 +16,6 @@ class Solution:
                 if f > ff: break
                 ptr1 += 1
                 ptr2 += 1
-                if ff < 3:
-                    if ff != f: break
-            else:
-                if ptr1 == m and ptr2 == n: res += 1
+                if ff < 3 and ff != f: break
+            else: res += ptr1 == m and ptr2 == n
         return res
