@@ -5,14 +5,10 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-        a = 0
-        for i in t:
-            if a == len(s):
-                return True
-            if s[a] == i:
-                a += 1
-        else:
-            if len(s) == a:
-                return True
-            else:
-                return False
+        m, n = len(s), len(t)
+        p1, p2 = 0, 0
+        while p1 < m and p2 < n:
+            if s[p1] == t[p2]:
+                p1 += 1
+            p2 += 1
+        return p1 == m
