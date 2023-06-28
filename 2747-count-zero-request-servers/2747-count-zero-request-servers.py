@@ -9,11 +9,11 @@ class Solution:
         for key, i in Q:
             while len(logs) > ptr2 and logs[ptr2][1] <= key:
                 hashT[logs[ptr2][0]] += 1
-                if hashT[logs[ptr2][0]] == 1: count += 1
+                count += hashT[logs[ptr2][0]] == 1
                 ptr2 += 1
             while len(logs) > ptr1 and key - x > logs[ptr1][1]:
                 hashT[logs[ptr1][0]] -= 1
-                if hashT[logs[ptr1][0]] == 0: count -= 1
+                count -= hashT[logs[ptr1][0]] == 0
                 ptr1 += 1
             res[i] = n - count
         return res
