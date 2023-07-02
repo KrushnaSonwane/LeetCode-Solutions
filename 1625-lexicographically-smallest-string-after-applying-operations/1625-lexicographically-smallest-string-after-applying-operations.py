@@ -4,7 +4,7 @@ class Solution:
         visit = set({s})
         Q = [s]
         while Q:
-            currS = Q.pop(0)
+            currS = Q.pop()
             res = min(res, currS)
             A = []
             for ch in range(1, len(currS), 2):
