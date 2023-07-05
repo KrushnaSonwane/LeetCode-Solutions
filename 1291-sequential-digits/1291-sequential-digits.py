@@ -8,6 +8,5 @@ class Solution:
             if str(num)[-1] == '9': return
             num = str(num) + str(int(str(num)[-1]) + 1)
             dfs(int(num))
-        for i in range(1, 9):
-            dfs(i)
+        for i in range(1, 9): dfs(i)
         return sorted(res)
