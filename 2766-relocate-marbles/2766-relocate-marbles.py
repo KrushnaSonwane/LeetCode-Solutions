@@ -8,7 +8,4 @@ class Solution:
                 count = hashT[a]
                 del hashT[a]
                 hashT[b] += count
-        res = []
-        for num in hashT:
-            res.append(num)
-        return sorted(res)
+        return sorted([num for num in hashT])
