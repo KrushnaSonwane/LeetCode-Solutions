@@ -1,5 +1,9 @@
 class Solution(object):
     def eventualSafeNodes(self, graph):
+        """
+        :type graph: List[List[int]]
+        :rtype: List[int]
+        """
         n = len(graph)
         path, visit = [0] * n, [0] * n
         adj = defaultdict(list)
