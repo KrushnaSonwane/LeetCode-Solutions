@@ -2,14 +2,16 @@ class Solution:
     def findBall(self, A: List[List[int]]) -> List[int]:
         m, n = len(A), len(A[0])
         res = [-1] * n
+        @cache
+        def dfs(r, c):
+            if r == m: return c
+            if r in [-1,m] or c in [-1,n]: return -1
+            if A[r][c] == 1:
+                if c+1 < n and A[r][c+1] == 1: return dfs(r+1,c+1)
+            if A[r][c] == -1:
+                if c-1 >= 0 and A[r][c-1] == -1: return dfs(r+1,c-1)
+            return -1
+
         for i in range(n):
-            ans = i
-            for j in range(m):
-                if A[j][ans] == -1:
-                    if ans-1 >= 0 and A[j][ans] == -1: ans -= 1
-                    else: break
-                if A[j][ans] == 1:
-                    if ans+1 < n and A[j][ans+1] == 1: ans += 1
-                    else: break
-            else: res[i] = ans
+            res[i] = dfs(0, i)
         return res
