@@ -5,9 +5,7 @@ class Solution(object):
         :rtype: int
         """
         A.sort()
-        visit = set()
-        curr = 0
-        res = 0
+        visit, curr, res = set(), 0, 0
         for a in A:
             while curr < a or curr in visit: curr += 1
             visit.add(curr)
