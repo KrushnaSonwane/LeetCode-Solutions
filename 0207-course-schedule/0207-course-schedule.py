@@ -1,19 +1,22 @@
-class Solution(object):
-    def canFinish(self, n, graph):
-        adj, visit, degree = defaultdict(list), set(), [0] * n
-        for a, b in graph:
+class Solution:
+    def canFinish(self, N: int, A: List[List[int]]) -> bool:
+        adj = defaultdict(list)
+        degree = [0]*N
+        for a, b in A:
+            adj[a].append(b)
             adj[b].append(a)
             degree[a] += 1
-        queue = []
-        for i, val in enumerate(degree):
-            if not val: 
-                queue.append(i)
+        Q, visit = [], set()
+        for i in range(N):
+            if not degree[i]:
+                Q.append(i)
                 visit.add(i)
-        while queue:
-            node = queue.pop(0)
+        while Q:
+            node = Q.pop(0)
             for child in adj[node]:
                 degree[child] -= 1
-                if degree[child] == 0 and child not in visit:
-                    queue.append(child)
-                    visit.add(child)
-        return len(visit) == n
+                if child not in visit:
+                    if not degree[child]: 
+                        Q.append(child)
+                        visit.add(child)
+        return len(visit) == N
