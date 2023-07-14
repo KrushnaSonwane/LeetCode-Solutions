@@ -1,11 +1,11 @@
 class Solution:
     def numberOfArithmeticSlices(self, A: List[int]) -> int:
-        B = [A[i]-A[i+1] for i in range(len(A)-1)]
-        last = inf
-        count, res = 0, 0
-        for b in B:
-            if b != last: count = 1
-            else: count += 1
-            last = b
-            if count >= 2: res += count - 1
+        res, count, lastNum, lastDiff = 0, 0, inf, inf
+        for a in A:
+            currDiff = lastNum - a
+            if currDiff == lastDiff: count += 1
+            else: count = 1
+            lastDiff = currDiff
+            lastNum = a
+            if count > 1: res += count - 1
         return res
