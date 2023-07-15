@@ -11,6 +11,5 @@ class Solution:
         for digit in '9876543210':
             if digit in A:
                 for _ in range(A[digit]//2): res.append(digit)
-        if ('0' in res and res.count('0') == len(res)) or not res:
-            return max(B) if B else '0'
+        if ('0' in res and res.count('0') == len(res)) or not res: return max(B) if B else '0'
         return ''.join(res) + (max(B) if B else '') + ''.join(res[::-1])
