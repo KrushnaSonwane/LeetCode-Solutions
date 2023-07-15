@@ -16,4 +16,5 @@ class Solution:
                     res[child] = res[node]
                 elif cost + w == dist[child]:
                     res[child] += res[node]
-        return res[n-1] % mod
+                    res[child] %= mod
+        return res[n-1]
