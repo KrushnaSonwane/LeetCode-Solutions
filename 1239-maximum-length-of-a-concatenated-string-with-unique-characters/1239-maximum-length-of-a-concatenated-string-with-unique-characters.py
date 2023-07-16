@@ -2,6 +2,7 @@ class Solution:
     def maxLength(self, A: List[str]) -> int:
         @cache
         def dfs(i, chars):
+            if len(chars) > 26: return 0
             if i == len(A):
                 if len(chars) == len(set(chars)): return len(chars)
                 return 0
