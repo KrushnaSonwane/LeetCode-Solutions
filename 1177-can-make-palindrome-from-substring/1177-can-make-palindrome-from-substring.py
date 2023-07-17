@@ -11,8 +11,6 @@ class Solution:
             count = 0
             for ch in A[r]:
                 count += (A[r][ch] - f[ch]) % 2
-            if not count: res.append(True)
-            else:
-                if (r-l+1) % 2: count -= 1
-                res.append(k >= count // 2)
+            count -= (r-l+1) % 2
+            res.append(k >= count // 2)
         return res
