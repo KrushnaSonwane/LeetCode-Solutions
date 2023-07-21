@@ -9,5 +9,4 @@ class Solution:
                         count[i] = 0
                     if size[j]+1 == size[i]:
                         count[i] += count[j]
-        max_ = max(size)
-        return sum(count[i] for i in range(len(A)) if size[i]==max_)
+        return sum(count[i] for i in range(len(A)) if size[i]==max(size))
