@@ -14,11 +14,12 @@ class ProductOfNumbers:
                 self.Q.append(num)
 
     def getProduct(self, k: int) -> int:
-        if len(self.Q) < k: return 0
-        if len(self.Q)==k: 
-            if self.Q[0]==0: return 0
-            else: return self.Q[-1]
-        return (self.Q[-1] // self.Q[-(k+1)]) if self.Q[-(k+1)] != 0 else self.Q[-1]
+        Q = self.Q
+        if len(Q) < k: return 0
+        if len(Q)==k: 
+            if Q[0]==0: return 0
+            else: return Q[-1]
+        return (Q[-1] // Q[-(k+1)]) if Q[-(k+1)] != 0 else Q[-1]
 
 # Your ProductOfNumbers object will be instantiated and called as such:
 # obj = ProductOfNumbers()
