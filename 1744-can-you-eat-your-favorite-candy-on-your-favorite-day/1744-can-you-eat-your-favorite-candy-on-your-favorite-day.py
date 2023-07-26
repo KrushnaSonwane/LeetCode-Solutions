@@ -6,9 +6,7 @@ class Solution:
             prev=0
             if ty >= 1: prev=A[ty-1]
             sum_ = A[ty]
-            if sum_ <= day:
-                res.append(False)
-            elif prev >= cap*(day+1):
+            if sum_ <= day or prev >= cap*(day+1):
                 res.append(False)
             else:
                 res.append(True)
