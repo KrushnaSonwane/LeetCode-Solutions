@@ -1,7 +1,5 @@
 class Solution:
     def findDifferentBinaryString(self, nums: List[str]) -> str:
-        visit = set(nums)
-        if len(nums)*'0' not in visit: return '0'*len(nums)
         def dfs(i, currS):
             if ''.join(currS) not in nums: return 1, currS
             if i == len(currS): return 0, []
