@@ -3,7 +3,7 @@ class Solution:
         visit = set(nums)
         if len(nums)*'0' not in visit: return '0'*len(nums)
         def dfs(i, currS):
-            if ''.join(currS) not in visit: return 1, currS
+            if ''.join(currS) not in nums: return 1, currS
             if i == len(currS): return 0, []
             currS[i] = '1'
             f, ans = dfs(i+1, currS)
