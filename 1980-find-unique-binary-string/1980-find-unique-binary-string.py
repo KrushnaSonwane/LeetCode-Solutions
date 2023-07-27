@@ -9,7 +9,5 @@ class Solution:
             f, ans = dfs(i+1, currS)
             if f: return f, ans
             currS[i]='0'
-            f, ans = dfs(i+1, currS)
-            return f, ans
-        _, res = dfs(0, ['0' for _ in nums])
-        return ''.join(res)
+            return dfs(i+1, currS)
+        return ''.join(dfs(0, ['0' for _ in nums])[1])
