@@ -6,9 +6,7 @@ class Solution:
         for i in range(1, len(A)-1):
             while Q[0][1] <= i:
                 heappop(Q)
-            if max_ < A[i] < Q[0][0]: 
-                res += 2
-            elif A[i-1] < A[i] < A[i+1]: 
-                res += 1
+            res += max_ < A[i] < Q[0][0]
+            res += A[i-1] < A[i] < A[i+1]
             max_=max(max_,A[i])
         return res
