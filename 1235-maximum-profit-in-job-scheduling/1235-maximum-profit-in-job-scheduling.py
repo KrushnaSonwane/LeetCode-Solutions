@@ -5,7 +5,7 @@ class Solution:
         def dfs(i):
             if i >= len(S): return 0
             res = dfs(i+1)
-            l, r = i+1, len(A)
+            l, r = 0, len(A)
             while r > l:
                 mid = (r+l)//2
                 if A[mid][0] < A[i][1]:
