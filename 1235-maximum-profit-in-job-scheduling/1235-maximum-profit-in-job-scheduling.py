@@ -1,7 +1,6 @@
 class Solution:
     def jobScheduling(self, S: List[int], E: List[int], P: List[int]) -> int:
-        A = [[s, e, p] for s, e, p in zip(S, E, P)]
-        A.sort(key=lambda x: x[0])
+        A = sorted([[s, e, p] for s, e, p in zip(S, E, P)])
         @cache
         def dfs(i):
             if i >= len(S): return 0
