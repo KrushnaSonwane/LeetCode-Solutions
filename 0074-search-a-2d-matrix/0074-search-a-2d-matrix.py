@@ -1,12 +1,11 @@
 class Solution:
-    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        for A in matrix:
-            l, r = 0, len(A)-1
-            while r >= l:
-                mid = (r+l)//2
-                if A[mid]>target:
-                    r = mid - 1
-                elif A[mid]<target:
-                    l = mid + 1
-                else: return True
+    def searchMatrix(self, A: List[List[int]], key: int) -> bool:
+        m, n = len(A), len(A[0])
+        i, j = 0, n-1
+        while m > i and -1 < j:
+            if A[i][j]==key: return True
+            if i+1<m and A[i+1][j] <= key:
+                i+=1
+            else:
+                j-=1
         return False
