@@ -5,13 +5,13 @@ class Solution:
             curr *= num
             if num == 0:
                 curr = 1
-                continue
-            res = max(res, curr)
+            else:
+                res = max(res, curr)
         curr = 1
         for num in nums[::-1]:
             curr *= num
             if num==0:
                 curr = 1
-                continue
-            res = max(res, curr)
+            else:
+                res = max(res, curr)
         return res
