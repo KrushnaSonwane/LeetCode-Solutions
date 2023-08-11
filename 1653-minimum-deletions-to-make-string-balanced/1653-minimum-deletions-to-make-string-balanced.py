@@ -3,7 +3,6 @@ class Solution:
         a = s.count('a')
         res = a
         for ch in s:
-            if ch == 'a': a -= 1
-            else: a += 1
+            a += 1 if ch == 'b' else -1
             res = min(res, a)
         return res
