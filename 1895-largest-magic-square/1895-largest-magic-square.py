@@ -20,23 +20,13 @@ class Solution:
                 while i + res+1 <= m and j + res +1<= n:
                     visit = set()
                     for k in range(i, i + res+1):
-                        if j == 0:
-                            visit.add(colSum[k][j+res])
-                        else:
-                            visit.add(colSum[k][j+res]-colSum[k][j-1])
+                        if j == 0: visit.add(colSum[k][j+res])
+                        else: visit.add(colSum[k][j+res]-colSum[k][j-1])
                     for k in range(j, j+res+1):
-                        if i==0:
-                            visit.add(rowSum[i+res][k])
-                        else:
-                            visit.add(rowSum[i+res][k]-rowSum[i-1][k])
-                    sum_ = 0
-                    for k in range(res+1):
-                        sum_ += grid[i+k][j+k]
-                    visit.add(sum_)
-                    sum_ = 0
-                    for k in range(res+1):
-                        sum_ += grid[i+res-k][j+k]
-                    visit.add(sum_)
+                        if i==0: visit.add(rowSum[i+res][k])
+                        else: visit.add(rowSum[i+res][k]-rowSum[i-1][k])
+                    visit.add(sum(grid[i+k][j+k] for k in range(res+1)))
+                    visit.add((sum(grid[i+res-k][j+k] for k in range(res+1))))
                     res += 1
                     if len(visit)==1: ans = max(ans, res)
         return ans
