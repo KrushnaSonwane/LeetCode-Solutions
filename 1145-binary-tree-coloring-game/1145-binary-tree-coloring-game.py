@@ -14,9 +14,8 @@ class Solution:
             dfs(root.right)
         
         def getSize(root):
-            if not root: return 0
-            return getSize(root.left) + getSize(root.right) + 1
-
+            return 0 if not root else getSize(root.left) + getSize(root.right) + 1
+        
         dfs(root)
         l = getSize(self.found.left)
         r = getSize(self.found.right)
