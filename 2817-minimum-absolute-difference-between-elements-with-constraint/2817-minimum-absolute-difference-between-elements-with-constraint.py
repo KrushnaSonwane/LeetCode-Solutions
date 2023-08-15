@@ -2,7 +2,6 @@ from sortedcontainers import SortedList
 class Solution:
     def minAbsoluteDifference(self, nums: List[int], x: int) -> int:
         A, res = SortedList(), inf
-        res = inf
         for i in range(x, len(nums)):
             A.add(nums[i-x])
             ind = bisect.bisect(A, nums[i])
