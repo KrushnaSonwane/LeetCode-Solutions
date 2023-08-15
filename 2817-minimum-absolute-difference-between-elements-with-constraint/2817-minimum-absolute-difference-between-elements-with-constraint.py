@@ -1,8 +1,7 @@
 from sortedcontainers import SortedList
 class Solution:
     def minAbsoluteDifference(self, nums: List[int], x: int) -> int:
-        A = SortedList()
-        print()
+        A, res = SortedList(), inf
         res = inf
         for i in range(x, len(nums)):
             A.add(nums[i-x])
