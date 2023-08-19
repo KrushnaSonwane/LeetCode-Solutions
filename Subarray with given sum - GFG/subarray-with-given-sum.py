@@ -3,12 +3,17 @@
 #Function to find a continuous sub-array which adds up to a given number.
 class Solution:
     def subArraySum(self,arr, n, s):
-        hashT = {0:0}
+        l, r = 0, 0
+        if s == 0: return [-1]
         sum_ = 0
-        for i, num in enumerate(arr):
-            sum_ += num
-            if sum_-s in hashT: return [hashT[sum_-s]+1, i+1]
-            hashT[sum_] = i+1
+        while n > r:
+            sum_ += arr[r]
+            while sum_ > s:
+                sum_ -= arr[l]
+                l += 1
+            if sum_ == s: 
+                return [l+1, r+1]
+            r += 1
         return [-1]
             
 
