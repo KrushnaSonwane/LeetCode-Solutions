@@ -11,7 +11,7 @@ class Solution:
                     else:
                         res.append('.'.join(nums))
                 return
-            for j in range(i, len(s)):
+            for j in range(i, min(len(s), i+3)):
                 nums.append(s[i: j+1])
                 dfs(j+1)
                 nums.pop()
