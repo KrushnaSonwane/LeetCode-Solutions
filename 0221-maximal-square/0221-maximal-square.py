@@ -3,13 +3,10 @@ class Solution:
 
         @lru_cache(None)
         def dp(x, y):
-            if x in [-1, m] or y in [-1, n] or A[i][j]=='0': return 0
-            res = 1 + min(dp(i-1, j), dp(i, j-1), dp(i-1, j-1))
+            if x in [-1, m] or y in [-1, n] or A[x][y]=='0': return 0
+            res = 1 + min(dp(x-1, y), dp(x, y-1), dp(x-1, y-1))
             return res
 
         m, n = len(A), len(A[0])
-        res = 0
-        for i in range(m):
-            for j in range(n):
-                res = max(res, dp(i, j))
+        res = max(dp(i, j) for i in range(m) for j in range(n))
         return res*res
