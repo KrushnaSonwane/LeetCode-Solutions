@@ -7,6 +7,9 @@ class Solution:
         return str(int(s1)*int(s2))
 
 
+
+
+
 #{ 
  # Driver Code Starts
 #Initial Template for Python 3
