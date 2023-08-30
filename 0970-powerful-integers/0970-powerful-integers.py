@@ -13,10 +13,10 @@ class Solution:
         B = getList(y)
         ans = set()
         
-        for num in A:
-            for num2 in B:
-                if num+num2 <= bound:
-                    ans.add(num+num2)
+        for a in A:
+            for b in B:
+                if a+b <= bound:
+                    ans.add(a+b)
                 else:
                     break
         return [val for val in ans]
