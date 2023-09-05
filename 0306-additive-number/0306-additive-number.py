@@ -7,11 +7,10 @@ class Solution:
             for j in range(i, len(num)):
                 a = num[i: j+1]
                 if f == -1 and a == str(int(a)):
-                    res = res or dfs(j+1, int(num[i: j+1]), s, t)
+                    res = res or dfs(j+1, int(a), s, t)
                 elif s == -1 and a == str(int(a)):
-                    res = res or dfs(j+1, f, int(num[i: j+1]), t)
-                else:
-                    if int(a) == f + s and a == str(int(a)):
-                        res = res or dfs(j+1, s, int(a), True)
+                    res = res or dfs(j+1, f, int(a), t)
+                elif int(a) == f + s and a == str(int(a)):
+                    res = res or dfs(j+1, s, int(a), True)
             return res
         return dfs(0, -1, -1, False)
