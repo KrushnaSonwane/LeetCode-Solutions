@@ -17,7 +17,7 @@ class Solution:
                 tail.next = ListNode(head.val)
                 tail = tail.next
                 head = head.next
-            if extra >= 1:
+            if extra:
                 tail.next = ListNode(head.val)
                 tail = tail.next
                 head = head.next
