@@ -1,14 +1,11 @@
 class Solution:
-    def combinationSum4(self, nums: List[int], target: int) -> int:
-        dp = [-1]*(target+1)
-        dp[0] = 1
-        def cs(nums, target, dp):
-            if dp[target] > -1:
-                return dp[target]
-            count = 0
-            for i in range(len(nums)):
-                if nums[i] <= target:
-                    count += cs(nums, target-nums[i], dp)
-            dp[target] = count
-            return count
-        return cs(nums, target, dp)
+    def combinationSum4(self, A: List[int], target: int) -> int:
+        @lru_cache(None)
+        def dfs(sum_):
+            if sum_ == 0: return 1
+            res = 0
+            for j in range(len(A)):
+                if A[j] <= sum_:
+                    res += dfs(sum_-A[j])
+            return res
+        return dfs(target)
