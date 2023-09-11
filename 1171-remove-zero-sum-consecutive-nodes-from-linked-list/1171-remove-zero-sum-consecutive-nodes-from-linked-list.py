@@ -6,9 +6,11 @@
 class Solution:
     def removeZeroSumSublists(self, head: Optional[ListNode]) -> Optional[ListNode]:
         A, curr = [], head
+        
         while curr:
             A.append(curr.val)
             curr = curr.next
+            
         def isDelete(A):
             hashT, sum_ = {0: -1}, 0
             for i, num in enumerate(A):
@@ -18,11 +20,14 @@ class Solution:
                     return True, A
                 hashT[-sum_] = i
             return False, A
+        
         f = True
         while f:
             f, A = isDelete(A)
         ans = t = ListNode()
+        
         for num in A:
             t.next = ListNode(num)
             t = t.next
+            
         return ans.next
