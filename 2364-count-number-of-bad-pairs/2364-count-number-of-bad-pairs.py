@@ -1,9 +1,9 @@
 class Solution:
     def countBadPairs(self, nums: List[int]) -> int:
-        res, n = 0, len(nums)
-        hashT = defaultdict(int)
+        N, res, hashT = len(nums), 0, defaultdict(int)
         for i, num in enumerate(nums):
-            diff = i - num
+            diff = -num+i
             res += hashT[diff]
             hashT[diff] += 1
-        return (n * (n-1) // 2) - res
+        N = (N * (N+1) // 2) - N
+        return N - res
