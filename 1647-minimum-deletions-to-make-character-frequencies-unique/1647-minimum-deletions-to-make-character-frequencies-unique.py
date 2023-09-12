@@ -7,9 +7,6 @@ class Solution:
             if last > a:
                 last = a
             else:
-                if last == 0: 
-                    res += a
-                else:
-                    res += a - (last - 1)
-                    last -= 1
+                res += a - max(last-1, 0)
+                last = max(0, last-1)
         return res
