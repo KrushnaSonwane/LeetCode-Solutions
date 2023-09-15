@@ -3,8 +3,7 @@ class Solution:
         l, r = 1, n
         res = []
         for _ in range(k//2):
-            res.append(l)
-            res.append(r)
+            res.extend([l, r])
             l += 1
             r -= 1
         f = k % 2
