@@ -1,22 +1,20 @@
 class Solution:
-    def isValid(self, d, A):
-        m, n = len(A), len(A[0])
-        visit = {(0, 0)}
-        Q = [(0, 0)]
-        while Q:
-            for _ in range(len(Q)):
-                i, j = Q.pop(0)
-                if (i, j) == (m-1, n-1): return 1
-                for r, c in [(i+1,j), (i-1,j), (i,j+1), (i,j-1)]:
-                    if r in [-1,m] or c in [-1,n] or (r,c) in visit or abs(A[i][j]-A[r][c])>d: continue
-                    visit.add((r, c))
-                    Q.append((r, c))
-        return 0
-
     def minimumEffortPath(self, A: List[List[int]]) -> int:
-        l, r = 0, 10**6
-        while r > l:
-            mid = (r + l) // 2
-            if self.isValid(mid, A): r = mid
-            else: l = mid + 1
+        def solve(m):
+            Q, visit = [(0, 0, A[0][0])], {(0,0)}
+            while Q:
+                i, j, last = Q.pop(0)
+                if (i,j)==(len(A)-1,len(A[0])-1): return 1
+                for x, y in [(i+1,j),(i-1,j),(i,j+1),(i,j-1)]:
+                    if x in [-1, len(A)] or y in [-1, len(A[0])] or (x, y) in visit or abs(A[x][y]-last) > m: continue
+                    visit.add((x,y))
+                    Q.append((x,y,A[x][y]))
+            return False
+        l, r = 0, 10**9
+        while l < r:
+            m = (l+r) // 2
+            if solve(m):
+                r = m
+            else:
+                l = m + 1
         return l
