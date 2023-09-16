@@ -10,7 +10,7 @@ class Solution:
                     visit.add((x,y))
                     Q.append((x,y,A[x][y]))
             return False
-        l, r = 0, 10**9
+        l, r = 0, 10**6
         while l < r:
             m = (l+r) // 2
             if solve(m):
