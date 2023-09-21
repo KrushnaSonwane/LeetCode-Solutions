@@ -6,10 +6,6 @@ class Solution:
             A[r+1] -= 1
         for i in range(1, len(A)):
             A[i] += A[i-1]
-        A.pop()
-        nums.sort()
-        A.sort()
-        for a, num in zip(A, nums):
+        for a, num in zip(sorted(A[:-1]), sorted(nums)):
             res += a * num
-            res %= 10**9+7
-        return res
+        return res % (10**9+7)
