@@ -23,20 +23,19 @@ class Solution(object):
             elif m > i:
                 return nums1[i] / 1
             return nums2[j] / 1 
-        else:
-            sum_ = 0
-            for _ in range(2):
-                if m > i and n > j:
-                    if nums1[i] > nums2[j]:
-                        sum_ += nums2[j]
-                        j += 1
-                    else:
-                        sum_ += nums1[i]
-                        i += 1
-                elif m > i:
-                    sum_ += nums1[i]
-                    i += 1
-                else:
+        sum_ = 0
+        for _ in range(2):
+            if m > i and n > j:
+                if nums1[i] > nums2[j]:
                     sum_ += nums2[j]
                     j += 1
-            return sum_ / 2.00
+                else:
+                    sum_ += nums1[i]
+                    i += 1
+            elif m > i:
+                sum_ += nums1[i]
+                i += 1
+            else:
+                sum_ += nums2[j]
+                j += 1
+        return sum_ / 2.00
