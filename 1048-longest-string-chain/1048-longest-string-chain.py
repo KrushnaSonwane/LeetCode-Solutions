@@ -5,12 +5,9 @@ class Solution:
         for _, w in A:
             count = 1
             for i in range(len(w)):
-                currStr = w[:i] + '*' + w[i+1:]
-                if currStr in hashT:
-                    res = max(res, hashT[currStr] + 1)
-                    count = max(count, hashT[currStr] + 1)
-            for i in range(len(w)):
-                curr = w[:i] + '*' + w[i:]
-                hashT[curr] = count
-            hashT[w+'*'] = count
+                curr = w[:i] + w[i+1:]
+                if curr in hashT:
+                    res = max(res, hashT[curr] + 1)
+                    count = max(count, hashT[curr] + 1)
+            hashT[w] = count
         return res
