@@ -1,11 +1,10 @@
 class Solution:
-    def removeDuplicateLetters(self, S: str) -> str:
-        count = collections.Counter(S)
-        A, visit = [], set()
-        for ch in S:
-            count[ch] -= 1
-            if ch not in visit:
-                visit.add(ch)
-                while A and A[-1] > ch and count[A[-1]]: visit.discard(A.pop())
-                A.append(ch)
-        return ''.join(A)
+    def removeDuplicateLetters(self, s: str) -> str:
+        res, A = [], Counter(s)
+        for ch in s:
+            A[ch] -= 1
+            if ch not in res:
+                while res and res[-1] > ch and A[res[-1]]:
+                    res.pop()
+                res.append(ch)
+        return ''.join(res)
