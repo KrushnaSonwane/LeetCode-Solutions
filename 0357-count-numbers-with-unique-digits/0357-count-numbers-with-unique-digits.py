@@ -14,4 +14,4 @@ class Solution:
                     res += dfs(i+1, 1, ''.join(A))
             return res
             
-        return dfs(0, False, '0'*10) + 1
+        return dfs(0, False, '0'*20) + 1
