@@ -1,6 +1,5 @@
 class Solution:
     def matrixBlockSum(self, mat: List[List[int]], k: int) -> List[List[int]]:
-        print([[10]*100]*100)
         m, n = len(mat), len(mat[0])
         res = [[0 for _ in range(n)] for _ in range(m)]
         for i in range(m):
