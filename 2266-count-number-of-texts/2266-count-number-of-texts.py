@@ -9,6 +9,5 @@ class Solution:
             res = dfs(i+1, A[i], 1)
             if A[i] == num:
                 res += dfs(i+1, num, count+1)
-            res %= MOD
-            return res
+            return res % MOD
         return dfs(0, '1', 0)
