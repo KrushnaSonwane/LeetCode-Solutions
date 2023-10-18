@@ -1,25 +1,19 @@
-class Solution(object):
-    def minimumTime(self, n, relations, time):
-        adj = defaultdict(list)
-        visit, degree = set(), [0] * (n + 1)
-        for a, b in relations:
-            degree[b] += 1
+class Solution:
+    def minimumTime(self, n: int, graph: List[List[int]], time: List[int]) -> int:
+        adj, inDegree = defaultdict(list), [0]*n
+        for a, b in graph:
             adj[a].append(b)
-        hashT = defaultdict(int)
-        queue = []
-        for i in range(1, n + 1):
-            if not degree[i]:
-                visit.add(i)
-                queue.append([i, time[i - 1]])
-                hashT[i] = time[i - 1]
-        res = 0
-        while queue:
-            node, t = queue.pop(0)
-            res = max(res, t)
+            inDegree[b-1] += 1
+        Q, res = [], [-inf] * n
+        for i, d in enumerate(inDegree):
+            if d == 0:
+                Q.append(i+1)
+                res[i] = time[i]
+        while Q:
+            node = Q.pop(0)
             for child in adj[node]:
-                degree[child] -= 1
-                hashT[child] = max(hashT[child], t)
-                if child not in visit and degree[child] == 0:
-                    queue.append([child, hashT[child] + time[child - 1]])
-                    visit.add(child)
-        return res
+                inDegree[child-1] -= 1
+                res[child-1] = max(res[node-1]+time[child-1], res[child-1])
+                if inDegree[child-1] == 0:
+                    Q.append(child)
+        return max(res)
