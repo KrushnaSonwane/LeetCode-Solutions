@@ -1,7 +1,6 @@
 class Solution:
     def countPairs(self, deliciousness: List[int]) -> int:
-        if deliciousness == [1048576,1048576]: return 1
-        A, MOD = [2**i for i in range(21)], 10**9+7
+        A, MOD = [2**i for i in range(22)], 10**9+7
         hashT, res = Counter(deliciousness), 0
         for num in hashT:
             for a in A:
