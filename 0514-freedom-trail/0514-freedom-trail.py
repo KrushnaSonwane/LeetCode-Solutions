@@ -1,21 +1,22 @@
 class Solution:
     def findRotateSteps(self, ring: str, key: str) -> int:
+        def getCount(i, j, c):
+            res = 0
+            while ring[i] != key[j]:
+                if c: i += 1
+                else: i -= 1
+                if c and i == len(ring):
+                    i = 0
+                if not c and i == -1:
+                    i = len(ring) - 1
+                res += 1
+            return i, res
+            
         @cache
         def dfs(i, j):
-            print(i, j)
             if j == len(key): return 0
-            a, p1 = 0, i
-            while ring[p1] != key[j]:
-                p1 += 1
-                a += 1
-                if p1 == len(ring):
-                    p1 = 0
-            b, p2 = 0, i
-            while ring[p2] != key[j]:
-                p2 -= 1
-                b += 1
-                if p2 == -1:
-                    p2 = len(ring) - 1
-            res = min(a + dfs(p1, j+1), b + dfs(p2, j+1)) + 1
+            i1, a = getCount(i, j, 1)
+            i2, b = getCount(i, j, 0)
+            res = min(a + dfs(i1, j+1), b + dfs(i2, j+1)) + 1
             return res
         return dfs(0, 0)
