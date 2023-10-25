@@ -5,7 +5,7 @@ class Solution:
             A.append(ceil(k / 2))
             k = ceil(k/2)
         def check(last, index):
-            if last == 0 and index % 2 == 0: 
+            if last == index % 2 == 0: 
                 return 1
             if last and index % 2 == 0:
                 return 0
