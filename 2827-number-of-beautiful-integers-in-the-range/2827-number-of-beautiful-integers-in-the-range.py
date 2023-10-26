@@ -10,10 +10,8 @@ class Solution:
             for digit in range(bound + 1):
                 add_odd = digit % 2 == 1
                 add_even = digit % 2 == 0
-                
                 if leadingZero and digit == 0:
                     add_even = 0
-                    
                 ans += dfs(s, index + 1, odd + add_odd, even + add_even, (remainder*10 + digit) % k, tight and digit == int(s[index]), leadingZero and digit == 0)
             return ans
         return dfs(str(high), 0, 0, 0, 0, True, True) - dfs(str(low - 1), 0, 0, 0, 0, True, True)
