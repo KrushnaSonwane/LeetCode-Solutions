@@ -20,7 +20,6 @@ class Solution:
             for j in range(n):
                 for c in range(AA[i][j]):
                     ii, jj = i + c, j - c
-                    if ii < m and jj >= 0:
-                        if c+1 <= AA[ii][j] and c + 1 <= BB[ii][jj] and BB[ii][j] >= c + 1:
+                    if ii<m and jj>=0 and c+1<=AA[ii][j] and c+1<=BB[ii][jj] and BB[ii][j]>=c+1:
                             res = max(res, (c+1) ** 2)
         return res
