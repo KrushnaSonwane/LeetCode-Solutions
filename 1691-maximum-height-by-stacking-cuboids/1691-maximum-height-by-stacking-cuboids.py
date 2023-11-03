@@ -1,7 +1,6 @@
 class Solution:
     def maxHeight(self, A: List[List[int]]) -> int:
-        for a in A:
-            a.sort()
+        for a in A: a.sort()
         A.sort()
         @cache
         def dfs(i, j):
