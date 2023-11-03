@@ -1,10 +1,10 @@
 class Solution:
     def buildArray(self, target: List[int], n: int) -> List[str]:
-        res, i = [], 0
+        res = []
         for num in range(1, min(target[-1], n) + 1):
-            if target[i] == num:
+            if target and target[0] == num:
                 res.append("Push")
-                i += 1
+                target.pop(0)
             else:
                 res.append("Push")
                 res.append("Pop")
