@@ -1,11 +1,9 @@
 class Solution:
     def countHomogenous(self, s: str) -> int:
-        res, mod = 0, 10**9+7
-        last, count = '', 0
+        last, res, MOD = '', 0, 10**9+7
         for ch in s:
-            if ch == last:
-                count += 1
-            else: 
-                count = 1
-            last, res = ch, (res+count) % mod
+            if last != ch:
+                count, last = 0, ch
+            count += 1
+            res = (res + count) % MOD
         return res
