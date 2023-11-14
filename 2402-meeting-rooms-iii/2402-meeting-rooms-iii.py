@@ -14,8 +14,7 @@ class Solution:
                 heappush(has, room)
             heappush(Q, [max(max_+ (r-l), r), heappop(has)])
 
-        while Q:
-            hashT[heappop(Q)[1]] += 1
+        while Q: hashT[heappop(Q)[1]] += 1
 
         res, count = inf, 0
         for num in hashT:
@@ -24,5 +23,4 @@ class Solution:
                 res = num
             elif hashT[num] == count:
                 res = min(res, num)
-
         return res
