@@ -1,9 +1,7 @@
 class Solution:
-    def maximumElementAfterDecrementingAndRearranging(self, arr: List[int]) -> int:
-        arr.sort()
-        if arr[0] != 1:
-            arr[0] = 1
-        for i in range(1, len(arr)):
-            if arr[i] - arr[i - 1] > 1:
-                arr[i] = arr[i - 1] + 1
-        return arr[-1]
+    def maximumElementAfterDecrementingAndRearranging(self, A: List[int]) -> int:
+        A.sort()
+        last = 1
+        for num in A[1:]:
+            last = min(last + 1, num)
+        return last
