@@ -1,11 +1,13 @@
 class Solution:
     def findDifferentBinaryString(self, nums: List[str]) -> str:
-        def dfs(i, A):
-            if ''.join(A) not in nums: return 1, A
-            if i == len(A): return 0, []
-            A[i] = '1'
-            f, ans = dfs(i+1, A)
-            if f: return f, ans
-            A[i]='0'
-            return dfs(i+1, A)
-        return ''.join(dfs(0, ['0' for _ in nums])[1])
+        self.res = ''
+        def dfs(i, num):
+            if self.res: return
+            if i == len(nums):
+                if num not in nums: 
+                    self.res = num
+                return 
+            dfs(i+1, num + '0')
+            dfs(i+1, num + '1')
+        dfs(0, '')
+        return self.res
