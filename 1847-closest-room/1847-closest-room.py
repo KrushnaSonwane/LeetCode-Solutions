@@ -14,19 +14,11 @@ class Solution:
             if ans < len(A):
                 res[i] = A[ans]
                 min_ = abs(A[ans]-key)
-            if ans + 1 < len(A):
-                diff = abs(A[ans+1]-key)
-                if diff < min_:
-                    res[i] = A[ans+1]
-                    min_ = diff
-                elif diff == min_:
-                    res[i] = min(res[i], A[ans+1])
             if ans-1 >= 0:
                 diff = abs(A[ans-1]-key)
                 if min_ > diff:
                     res[i] = A[ans-1]
                 elif min_ == diff:
                     res[i] = min(res[i], A[ans-1])
-            if res[i] == inf:
-                res[i] = -1
+            if res[i] == inf: res[i] = -1
         return res
