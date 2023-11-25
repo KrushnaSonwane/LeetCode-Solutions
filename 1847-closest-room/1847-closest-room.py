@@ -12,8 +12,7 @@ class Solution:
             ans = bisect_right(A, key-1)
             min_ = inf
             if ans < len(A):
-                res[i] = A[ans]
-                min_ = abs(A[ans]-key)
+                res[i], min_ = A[ans], abs(A[ans]-key)
             if ans-1 >= 0:
                 diff = abs(A[ans-1]-key)
                 if min_ > diff:
