@@ -6,23 +6,21 @@ class Solution:
         mod = defaultdict(list)
         for a in A:
             mod[a%3].append(a)
-        if sum_%3==0: pass
+        mod[1].sort(); mod[2].sort()
+        if sum_%3==0: 
+            pass
         elif sum_ % 3 == 1:
             if len(mod[1]) > 0:
-                mod[1].sort()
                 hashT[mod[1][0]] -= 1
             elif len(mod[2]) > 1:
-                mod[2].sort()
                 hashT[mod[2][0]] -= 1
                 hashT[mod[2][1]] -= 1
             else:
                 return ''
         else:
             if len(mod[2]) > 0:
-                mod[2].sort()
                 hashT[mod[2][0]] -= 1
             elif len(mod[1]) > 1:
-                mod[1].sort()
                 hashT[mod[1][0]] -= 1
                 hashT[mod[1][1]] -= 1
             else:
