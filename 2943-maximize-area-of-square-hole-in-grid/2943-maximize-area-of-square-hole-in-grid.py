@@ -3,8 +3,7 @@ class Solution:
         v.sort()
         h.sort()
         vG, hG = 0, 0
-        last = 1
-        count = 1
+        last, count = 1, 1
         for num in h:
             if num == last + 1:
                 count += 1
