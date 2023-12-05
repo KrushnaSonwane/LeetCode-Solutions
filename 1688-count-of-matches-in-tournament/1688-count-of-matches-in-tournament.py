@@ -1,11 +1,7 @@
-class Solution(object):
-    def numberOfMatches(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-        num, res = n, 0
-        while num != 1:
-            res += num // 2
-            num = (num // 2) + (num % 2)
+class Solution:
+    def numberOfMatches(self, n: int) -> int:
+        res = 0
+        while n != 1:
+            res += n // 2
+            n = ceil(n / 2)
         return res
