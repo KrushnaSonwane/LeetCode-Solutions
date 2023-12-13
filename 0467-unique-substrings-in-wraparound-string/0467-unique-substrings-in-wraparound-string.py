@@ -2,8 +2,7 @@ class Solution:
     def findSubstringInWraproundString(self, S: str) -> int:
         res = 0
         for ch in range(97, 123, 1):
-            ch, count = chr(ch), 0
-            i = 0
+            ch, count, i = chr(ch), 0, 0
             while len(S) > i:
                 if S[i] == ch:
                     t = 1
