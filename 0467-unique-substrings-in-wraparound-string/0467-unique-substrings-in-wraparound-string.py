@@ -18,5 +18,4 @@ class Solution:
                     count = max(count, t)
                 i += 1
             res += count
-            print(count)
         return res
