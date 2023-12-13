@@ -13,7 +13,7 @@ class Robot:
         self.start = False
 
     def step(self, num: int) -> None:
-        self.i += num
+        self.i = (self.i+num)%len(self.A)
         self.start = True
 
     def getPos(self) -> List[int]:
@@ -24,8 +24,8 @@ class Robot:
         if not self.start:
             return 'East'
         else:
-            if self.i % len(self.A) == 0: return 'South'
-            return self.A[self.i%len(self.A)][2]
+            if self.i == 0: return 'South'
+            return self.A[self.i][2]
 
 
 # Your Robot object will be instantiated and called as such:
