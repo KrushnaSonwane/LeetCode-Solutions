@@ -6,5 +6,4 @@ class Solution:
             if num%2:
                 return 1 + dfs(num*3+1)
             return 1 + dfs(num // 2)
-        A = sorted([[dfs(i), i] for i in range(lo, hi+1)])
-        return A[k-1][1]
+        return sorted([[dfs(i), i] for i in range(lo, hi+1)])[k-1][1]
