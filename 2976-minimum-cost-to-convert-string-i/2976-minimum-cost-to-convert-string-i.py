@@ -1,6 +1,6 @@
 class Solution:
     def minimumCost(self, source: str, target: str, O: List[str], C: List[str], CC: List[int]) -> int:
-        A = [[inf for j in range(26)] for i in range(26)]
+        A = [[inf for _ in range(26)] for _ in range(26)]
         for i in range(26):
             A[i][i] = 0
         res = 0
