@@ -22,22 +22,13 @@ class Solution:
             if root.val == destValue:
                 hashT[root.val] = 1
                 return True
-            if root.left != last:
-                ans = dfs(root.left, root)
-                if ans:
-                    hashT[root.val] = ans
-                    return True
-            if root.right != last:
-                ans = dfs(root.right, root)
-                if ans:
-                    hashT[root.val] = ans
-                    return ans
-            if A[root] and A[root] != last:
-                ans = dfs(A[root], root)
-                if ans:
-                    hashT[root.val] = ans
-                    return ans
+            for child in [root.left, root.right, A[root]]:
+                if child and child != last:
+                    if dfs(child, root):
+                        hashT[root.val] = 1
+                        return True
             return False
+        
         dfs(start[0], None)
         Q, res = [(start[0], None)], []
         while Q:
@@ -46,4 +37,5 @@ class Solution:
                 if child and child != last and hashT[child.val]:
                     res.append(d)
                     Q.append((child, root))
+                    
         return ''.join(res)
