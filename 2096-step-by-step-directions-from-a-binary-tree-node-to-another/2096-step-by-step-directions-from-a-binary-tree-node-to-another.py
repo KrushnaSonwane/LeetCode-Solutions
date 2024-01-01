@@ -8,6 +8,7 @@ class Solution:
     def getDirections(self, root: Optional[TreeNode], startValue: int, destValue: int) -> str:
         A, start = {}, [None]
         hashT = defaultdict(int)
+
         def getval(root, parent):
             if not root:
                 return 
@@ -17,6 +18,7 @@ class Solution:
             getval(root.left, root)
             getval(root.right, root)
         getval(root, None)
+
         def dfs(root, last):
             if not root: return False
             if root.val == destValue:
@@ -31,6 +33,7 @@ class Solution:
         
         dfs(start[0], None)
         Q, res = [(start[0], None)], []
+        
         while Q:
             root, last = Q.pop(0)
             for child, d in [[root.left, 'L'], [root.right, 'R'], [A[root], 'U']]:
