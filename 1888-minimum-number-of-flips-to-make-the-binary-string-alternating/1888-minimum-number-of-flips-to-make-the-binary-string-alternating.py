@@ -5,6 +5,7 @@ class Solution:
         for i in range(n):
             a += i % 2 == 0 and s[i] == '1'
             b += i % 2 == 1 and s[i] == '1'
+            
         x, y = ceil(n / 2), n // 2
         res = min((x-a)+b, (a + (y - b)))
         
