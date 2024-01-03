@@ -1,11 +1,9 @@
 class Solution:
     def numberOfBeams(self, bank: List[str]) -> int:
-        A = []
-        for b in bank:
-            count = b.count('1')
-            if count:
-                A.append(count)
-        res = 0
-        for i in range(1, len(A)):
-            res += A[i] * A[i-1]
+        res, last, curr = 0, 0, 0
+        for a in bank:
+            curr = a.count('1')
+            if curr and last:
+                res += curr * last
+            if curr: last = curr
         return res
