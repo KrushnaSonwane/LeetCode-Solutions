@@ -1,9 +1,10 @@
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
-        A = []
+        LIS = []
         for num in nums:
-            if not A or A[-1] < num:
-                A.append(num)
-            i = bisect.bisect_left(A, num)
-            A[i] = num
-        return len(A)
+            if not LIS or LIS[-1] < num:
+                LIS.append(num)
+            else:
+                j = bisect_right(LIS, num-1)
+                LIS[j] = num
+        return len(LIS)
