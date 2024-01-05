@@ -3,14 +3,15 @@ class Solution:
         min_, max_, sum_, n, A, a, mode = inf, 0, 0, 0, [], 0, 0
         for i, num in enumerate(count):
             if num:
-                min_ = min(min_, i)
-                max_ = max(max_, i)
+                min_ = min(min_, i) * 1.0
+                max_ = max(max_, i) * 1.0
                 sum_ += i * num
                 n += num
                 A.append([i, n])
                 if a < num:
-                    mode, a = i, num
-        min_, max_, mean, mode = float(min_), float(max_), sum_ / (float(n)), float(mode)
+                    mode, a = i*1.0, num
+
+        mean = sum_ / (n * 1.0)
         mid = n // 2
 
         def binarySearch(key):
@@ -29,6 +30,5 @@ class Solution:
             sum_ = A[i][0] + A[j][0]
             median = sum_ / 2.0
         else:
-            median = float(A[binarySearch(n // 2+1)][0])
-        print([min_, max_, mean, median, mode], A)
+            median = A[binarySearch(n // 2+1)][0] * 1.0
         return [min_, max_, mean, median, mode]
