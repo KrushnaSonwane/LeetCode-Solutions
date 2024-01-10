@@ -12,9 +12,7 @@ class Solution:
                     A[i][j] = min(A[i][j], A[i][k] + A[k][j])
         res, count = 0, inf
         for i in range(n):
-            curr = 0
-            for j in range(n):
-                curr += A[i][j] <= cost
+            curr = sum(1 for j in range(n) if cost >= A[i][j])
             if curr <= count:
                 res, count = i, curr
         return res
