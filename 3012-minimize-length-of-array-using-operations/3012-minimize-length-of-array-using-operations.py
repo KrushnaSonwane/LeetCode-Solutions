@@ -3,8 +3,6 @@ class Solution:
         hashT = Counter(nums)
         A = [[num, hashT[num]] for num in hashT]
         A.sort()
-        if len(A) == 1:
-            return (A[0][1] + 1) // 2
         min_ = inf
         for num, _ in A:
             if num % A[0][0] != 0:
