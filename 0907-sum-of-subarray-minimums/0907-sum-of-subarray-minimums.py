@@ -8,14 +8,13 @@ class Solution:
                 stack.pop()
             left[i] = i - stack[-1]
             stack.append(i)
+            
         stack = [n]
-        
         for i in range(n-1, -1, -1):
             while len(stack) > 1 and nums[stack[-1]] > nums[i]:
                 stack.pop()
             right[i] = stack[-1] - i
             stack.append(i)
-            
         res, MOD = 0, 10**9+7
         for i, num in enumerate(nums):
             res = (res + (left[i] * right[i]) * num) % MOD
