@@ -20,4 +20,5 @@ class Solution:
         res, MOD = 0, 10**9+7
         for i, num in enumerate(nums):
             res = (res + (left[i] * right[i]) * num) % MOD
+            
         return res
