@@ -13,10 +13,8 @@ class Solution(object):
             while r >= l:
                 mid = (r+l) // 2
                 if nums.at(mid) == nums.at(i):
-                    i = mid
-                    l = mid + 1
+                    i, l = mid, mid + 1
                 else:
                     r = mid - 1
-            res += 1
-            i += 1
+            res, i = res + 1, i + 1
         return res
