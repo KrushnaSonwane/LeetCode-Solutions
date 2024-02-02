@@ -4,7 +4,6 @@ class Solution:
         def dfs(i):
             if i == n: return 1
             if i > n: return 0
-            res = dfs(i+1) * (k-1) + dfs(i+2) * (k-1)
-            return res
+            return dfs(i+1) * (k-1) + dfs(i+2) * (k-1)
         res = (dfs(1) * k) + (dfs(2) * k)
         return res
