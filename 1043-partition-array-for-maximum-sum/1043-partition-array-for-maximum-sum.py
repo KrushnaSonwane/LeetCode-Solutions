@@ -1,5 +1,5 @@
 class Solution:
-    def maxSumAfterPartitioning(self, A: List[int], k: int) -> int:
+    def maxSumAfterPartitioning(self,A: List[int], k: int) -> int:
         dp = {}
         def dfs(i):
             if i not in dp:
