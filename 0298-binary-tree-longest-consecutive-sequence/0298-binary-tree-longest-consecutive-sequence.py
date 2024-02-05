@@ -16,5 +16,5 @@ class Solution:
                 return root.val, b + 1, max(c, z, b + 1)
             elif x - 1 == root.val:
                 return root.val, y + 1, max(c, z, y + 1)
-            return root.val, 1, max(c, z, 1, b, y)
+            return root.val, 1, max(c, z, 1)
         return dfs(root)[2]
