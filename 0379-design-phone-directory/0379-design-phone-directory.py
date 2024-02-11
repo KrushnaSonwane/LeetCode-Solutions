@@ -9,7 +9,6 @@ class PhoneDirectory:
         self.hashT = set()
 
     def get(self) -> int:
-        print(self.A)
         if self.A:
             num = self.A.pop(0)
             self.hashT.add(num)
