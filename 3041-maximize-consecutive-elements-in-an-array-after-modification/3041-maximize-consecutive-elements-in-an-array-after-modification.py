@@ -1,10 +1,7 @@
 class Solution:
     def maxSelectedElements(self, nums: List[int]) -> int:
         dp = Counter()
-        nums.sort()
-        ans = 0
-        for num in nums:
+        for num in sorted(nums):
             dp[num+1] = dp[num] + 1
             dp[num] = dp[num-1] + 1
-            ans = max(ans, dp[num+1], dp[num])
-        return ans
+        return max(dp.values())
